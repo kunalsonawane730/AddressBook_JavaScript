@@ -5,7 +5,7 @@ var prompt=require('prompt-sync')();
 const NAME_REGEX_PATTERN = RegExp('^[A-Z]{1}[a-z]{3,}$');
 const ADDRESS_REGEX_PATTERN = RegExp('^[A-Za-z]{3,}$');
 const PINCODE_REGEX_PATTERN = RegExp('^[0-9]{6}$');
-const PHONE_NUMBER_PATTERN = RegExp("^[0-9]{2}\\s{1}[0-9]{10}$");
+const PHONE_NUMBER_PATTERN = RegExp("^[0-9]{2}\\s{1}[0-9]{10}$"); 
 const EMAIL_REGEX_PATTERN=RegExp('^[a-zA-Z0-9]+([._+-][0-9a-zA-Z]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$');
 let contactArray = new Array();
 
@@ -94,6 +94,10 @@ function addContact(){
    }catch(Exception){
        console.log(Exception);
    }
+   function getCountOfContacts(count) {
+       count += 1;
+       return count;
+   }
 }
 
 //edit Contact is used to edit the inserted contact by using first name
@@ -158,11 +162,14 @@ let deletContact=()=>{
        contactArray = contactArray.filter((contacts)=>contacts.firstName!=name);
        console.log("Contact is deleleted from Addressbook.")
    }
+
+  
 }
+
 
 let choice = 0;
 do{
-   console.log("Press: \n1) Add Contact \n2) Edit Contact \n3) View Contact \n4) Delete Contact \n0)Exit");
+   console.log("Press: \n1) Add Contact \n2) Edit Contact \n3) View Contact \n4) Delete Contact \n5) Find Number Of Contacts \n0)Exit");
    choice = Number(prompt("Enter your choice: "));
    if(choice == 1){
        addContact();
@@ -180,5 +187,9 @@ do{
    }
    if(choice == 4){
        deletContact();
+   }
+   if(Choice==5){
+       console.log("\nCount of Contacts : " + contactArray.reduce(getCountOfContacts, 0));
+
    }
 }while(choice != 0);
