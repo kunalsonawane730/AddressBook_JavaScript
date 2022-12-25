@@ -183,7 +183,7 @@ function countByCityOrState(countCityOrState, choice){
 
 let choice = 0;
 do{
-   console.log("Press: \n1) Add Contact \n2) Edit Contact \n3) View Contact  \n4) Delete Contact \n5) Count Contacts \n6) Search City or State \n7) View Contact By city or state \n8) Count Contacts by city or state \n0)Exit");
+   console.log("Press: \n1) Add Contact \n2) Edit Contact \n3) View Contact  \n4) Delete Contact \n5) Count Contacts \n6) Search City or State \n7) View Contact By city or state \n8) Count by city or state \n9) Sort by name \n0)Exit:");
    choice = Number(prompt("Enter your choice: "));
    if(choice == 1){
        addContact();
@@ -240,5 +240,8 @@ do{
                    countByCityOrState(state, 2);
                    break;
        }
+   }
+   if(choice == 9){
+       console.log(contactArray.sort((a,b)=>a.firstName.localeCompare(b.firstName)));
    }
 }while(choice != 0);
