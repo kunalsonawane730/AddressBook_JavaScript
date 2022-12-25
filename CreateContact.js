@@ -77,7 +77,7 @@ class Contact {
 function addContact(){
    let firstName = prompt("Enter Firstname: ");
    let lastName = prompt("Enter Lastname: ");
-   if(contactArray.find((contact)=>(contact.firstName+" "+contact.lastName)==(FirstName+" "+LastName))){   
+   if(contactArray.find((contact)=>(contact.firstName+" "+contact.lastName)==(firstName+" "+lastName))){   
        console.log("Name is already present in addressbook.");
        return;
    }
@@ -93,10 +93,6 @@ function addContact(){
        console.log("Contact is added. ");
    }catch(Exception){
        console.log(Exception);
-   }
-   function getCountOfContacts(count) {
-       count += 1;
-       return count;
    }
 }
 
@@ -162,10 +158,7 @@ let deletContact=()=>{
        contactArray = contactArray.filter((contacts)=>contacts.firstName!=name);
        console.log("Contact is deleleted from Addressbook.")
    }
-
-  
 }
-
 
 let choice = 0;
 do{
@@ -187,9 +180,5 @@ do{
    }
    if(choice == 4){
        deletContact();
-   }
-   if(Choice==5){
-       console.log("\nCount of Contacts : " + contactArray.reduce(getCountOfContacts, 0));
-
    }
 }while(choice != 0);
